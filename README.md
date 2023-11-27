@@ -1,6 +1,6 @@
 # Pantry-Pale
 
-- Project Title
+**Project Title
 Pantry Pal: Your Unique Grocery Hub
 
-- Project Description
+**Project Description
