@@ -1,0 +1,92 @@
+import json
+from datetime import datetime
+
+class Product:
+    def __init__(self, name, expiration_date, nutritional_values=None):
+        self.name = name
+        self.expiration_date = expiration_date
+        self.nutritional_values = nutritional_values
+
+    def to_dict(self):
+        return vars(self)
+
+    @staticmethod
+    def from_dict(data):
+        return Product(data['name'], data['expiration_date'], data.get('nutritional_values'))
+
+    def __repr__(self):
+        return f"<Product name={self.name}, expiration_date={self.expiration_date}>"
+
+my_fridge = {'items': []}
+
+def add_items_to_fridge(items):
+    for item in items:
+        my_fridge['items'].append(item.to_dict())
+    save_fridge_contents()
+
+def save_fridge_contents():
+    with open('fridge_contents.json', 'w') as f:
+        json.dump(my_fridge, f, default=str)
+
+def read_receipt(image_path):
+    # Placeholder for OCR processing and JSON response parsing
+    # Simulate extracted data from receipt
+    extracted_items = [
+        {'name': 'Milk', 'expiration_date': '2023-12-05'},
+        {'name': 'Bread', 'expiration_date': '2023-11-30'}
+    ]
+    items = [Product.from_dict(item) for item in extracted_items]
+    user_confirmation = input("Are these items correct? (y/n): ")
+    if user_confirmation.lower() == 'y':
+        add_items_to_fridge(items)
+    else:
+        print("Please edit the items manually.")
+
+# Groceries-related functions
+grocery_history = {'current': [], 'past': []}
+
+def add_to_grocery_history(product):
+    grocery_history['current'].append(product.to_dict())
+    save_grocery_history()
+
+def transfer_to_past(product_name):
+    for item in grocery_history['current']:
+        if item['name'] == product_name:
+            grocery_history['past'].append(item)
+            grocery_history['current'].remove(item)
+            save_grocery_history()
+            break
+
+def save_grocery_history():
+    with open('grocery_history.json', 'w') as f:
+        json.dump(grocery_history, f, default=str)
+
+def load_grocery_history():
+    try:
+        with open('grocery_history.json', 'r') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return {'current': [], 'past': []}
+
+def view_past_groceries():
+    for item in grocery_history['past']:
+        print(Product.from_dict(item))
+
+def integrate_with_fridge(ocr_products):
+    for product in ocr_products:
+        add_items_to_fridge([product])
+        add_to_grocery_history(product)
+
+if __name__ == "__main__":
+    # Initialize grocery_history with data from file
+    grocery_history = load_grocery_history()
+    
+    # Simulated OCR products
+    example_ocr_products = [
+        Product("Apples", "2023-12-10"),
+        Product("Bananas", "2023-12-08")
+    ]
+    
+    # Integrate OCR results with fridge and grocery history
+    integrate_with_fridge(example_ocr_products)
+    view_past_groceries()
