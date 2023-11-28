@@ -10,7 +10,6 @@ self.nutritional_values = nutritional_values
 def to_dict(self): 
 return vars(self) 
 
- 
 def from_dict(data): 
 return Product(data['name'], data['expiration_date'], data.get('nutritional_values')) 
 
