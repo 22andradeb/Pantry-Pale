@@ -1,14 +1,15 @@
 # PantryPal
 Your Unique Grocery Hub
 
+
 # Table of Contents
 1. Description of the app
-2. Features
-3. Explanation of the files
-4. Installation
-5. Usage
-6. Extra information
-7. Credits
+2. Explanation of the files
+3. Installation
+4. Usage
+5. Extra information
+6. Credits
+
    
 # Description of the app
 As university students who have found ourselves living alone for the first time, we quickly realized the importance and difficulty in carrying out effective grocery shopping. Essentially, we want to save moeny and time on this activity which we carry out on a nearly daily basis. Motivated by these factors, we developed the fundamentals of an easy-to-use platform that can serve as a hub for this essential aspect of our lives and aid us by facilitating carrying out of this task while at the same time helping us reducing our food waste to become more sustainable and healthier people.  
@@ -21,7 +22,11 @@ Here, they will be able to manage their groceries and waste management through m
 In the My fridge area, users will be to view each item they currently have in their fridge in order of expiration date from most to least perishable item. What allows the app the content of the products present in their fridges is the Receipt Reader feature of the app. This feature allows users to input a picture of their grocery receipt so that each item the My fridge area is updated with the new purchases, which are also saved into the Groceries area of the app as users can see their past grcoery purchases when making new grocery lists.
 As if this wasn't enough, PantryPal will also send users notifications reminding them when one of the items present in their fridge are about to expire. This way, students will be able to proberly improve their Waste Management and lead more sustainable lives.
 
-# Features
+
+# Explanation of the files
+On the Github there are only 2 files:
+- One called "Code", in which we have uploaded the most updated code of our app. This is the code that the user has to run in Python in order to be able to use our product.
+- Another called "README", which the explanation of our project.
 
 
 # Installation
@@ -30,6 +35,9 @@ To be able to run the program, the user must have the following things installed
 - Libraries: the user must use 4 libraries when using the code: datetime, getpass, json, os. Moreover, the code explains the neccesity of a library for OCR, but it didn't specify which one. To download a library, the user must execute the following command: **pip install "name of library"**
 
 Once the user has one of the possible versions of Python and the required libraries set up, he has to open the file called "Code" and run the program.
+
+Disclosure: the app was developped on MacOS 13.01 using Python 3.11
+
 
 # Usage
 Firstly, users will be asked to sign in into our app.
@@ -45,6 +53,7 @@ After the user has pressed the button of his decision, it will be conducted to t
 
 ![IMG_3533](https://github.com/22andradeb/Pantry-Pale/assets/152213582/f9061295-9157-4018-996a-c02227bd42a3)
 ![IMG_3534](https://github.com/22andradeb/Pantry-Pale/assets/152213582/8c56ec9d-803b-4ca3-ba5b-0274ed43fa29)
+
 
    
 2. Updating the fridge with new options: on this section, the user can update its product in two different ways:
@@ -72,7 +81,6 @@ After the user has pressed the button of his decision, it will be conducted to t
 Moreover, in the 3 sections, below there is are 3 buttons: 1 that indicates the current section, and 2 that refers to the other 2 sections (so that the user can go directly to the section he want without having to return to the main page).
 
 ![IMG_3543](https://github.com/22andradeb/Pantry-Pale/assets/152213582/bf5bca23-2b10-4d3b-b713-3b14dcd5329e)
-
 
 
 # Extra Information
