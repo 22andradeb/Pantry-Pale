@@ -59,7 +59,7 @@ def attempt_signup(username, password):
 class FridgeTrackerApp(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("Fridge Tracker")
+        self.title("My_Fridge Product Tracker")
         self.geometry("400x300")
         self.create_widgets()
 
