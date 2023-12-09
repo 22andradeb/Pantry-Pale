@@ -65,8 +65,8 @@ After the user has pressed the button of his decision, it will be conducted to t
      ![IMG_3541](https://github.com/22andradeb/Pantry-Pale/assets/152213582/f4db83c0-ef03-46ee-ad68-14df772546f6)
 
    - If he press the insert manually insert button, he will be asked about the name of the product and products attributes such as expiration date, the quantity bought, etc). Once the app has this information, the new products will be uploaded to my Fridge (with their respective colors and their expiration date and photo, and occupating their respective position).
-     
-  ![IMG_3542](https://github.com/22andradeb/Pantry-Pale/assets/152213582/c4a4f237-a89c-4340-9e85-a9555f410230)
+
+     ![IMG_3542](https://github.com/22andradeb/Pantry-Pale/assets/152213582/c4a4f237-a89c-4340-9e85-a9555f410230)
    
 4. Accesing Past Groceries: in this section, 3 actions can be performed:
    - They can search the name or date of a food that is on the past groceries
