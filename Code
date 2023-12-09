@@ -1,84 +1,11 @@
 import json
 from datetime import datetime
-
-class Product: 
-def _init_(self, name, expiration_date, nutritional_values=None): 
-self.name = name 
-self.expiration_date = expiration_date 
-self.nutritional_values = nutritional_values 
-
-def to_dict(self): 
-return vars(self) 
-
-def from_dict(data): 
-return Product(data['name'], data['expiration_date'], data.get('nutritional_values')) 
-
-def _repr_(self): 
-return f"<Product name={self.name}, expiration_date={self.expiration_date}>" 
-
-my_fridge = {'items': []} 
-
-def add_items_to_fridge(items): 
-for item in items:
-my_fridge['items'].append(item.to_dict()) 
-
-
-import getpass
-
-# Simulated database of users
-user_db = {}
-
-def attempt_signup(username, password):
-    if username in user_db:
-        print("Username already exists.")
-        return False
-    else:
-        # Here you would store a hashed password, not the plain text
-        user_db[username] = password
-        print("Signup successful!")
-        return True
-
-def show_signup():
-    print("Signup")
-    username = input("Enter your username: ")
-    password = getpass.getpass("Enter your password: ")
-
-    if attempt_signup(username, password):
-        main_app()  # Proceed to the main app only if signup is successful
-
-def main_app():
-    # Main application logic after successful signup
-    print("Welcome to the main application!")
-
-# Start the signup process
-show_signup()
-
-def main_menu():
-    print("Please choose an option:")
-    print("1. Add items to My Fridge")
-    print("2. View Past Groceries")
-    print("3. Read Receipt")
-    choice = input("Enter the number of your choice: ")
-
-    if choice == '1':
-        # Simulated adding items
-        # In a real application, you would ask for user input or get data from the OCR function
-        items_to_add = [
-            Product("Yogurt", datetime.now().strftime("%Y-%m-%d")),
-            Product("Cheese", datetime.now().strftime("%Y-%m-%d"))
-        ]
-        add_items_to_fridge(items_to_add)
-    elif choice == '2':
-        view_past_groceries()
-    elif choice == '3':
-        # Placeholder for receipt image path
-        read_receipt("path_to_receipt_image")
-    else:
-        print("Invalid choice. Please enter 1, 2, or 3.")
-        main_menu()
-
+import tkinter as tk
+from tkinter import filedialog, messagebox
 import json
+import os
 
+# Product class
 class Product:
     def __init__(self, name, expiration_date, quantity, nutritional_values=None):
         self.name = name
@@ -92,26 +19,21 @@ class Product:
     def from_dict(data):
         return Product(data['name'], data['expiration_date'], data['quantity'], data.get('nutritional_values'))
 
-    def __repr__(self):
-        return f"<Product name={self.name}, expiration_date={self.expiration_date}, quantity={self.quantity}>"
-
+# Global fridge dictionary
 my_fridge = {'items': []}
 
+# Function to add items to the fridge
 def add_items_to_fridge(items):
     for item in items:
         my_fridge['items'].append(item.to_dict())
     save_fridge_contents()
 
+# Save fridge contents to a file
 def save_fridge_contents():
     with open('fridge_contents.json', 'w') as f:
         json.dump(my_fridge, f, default=str)
 
-def display_fridge_contents():
-    print("My Fridge Contents:")
-    for item in my_fridge['items']:
-        print(f"{item['name']}: {item['quantity']} - Expires on {item['expiration_date']}")
-
-# Initialize the fridge contents on program start
+# Load fridge contents from a file
 def load_fridge_contents():
     try:
         with open('fridge_contents.json', 'r') as f:
@@ -120,94 +42,85 @@ def load_fridge_contents():
     except FileNotFoundError:
         print("No fridge contents found. Starting with an empty fridge.")
 
-import os
+# Initialize fridge contents
+load_fridge_contents()
 
-def upload_image():
-    # Prompt the user to enter the file path of the image
-    file_path = input("Please enter the path of the image file to upload: ")
-    # Check if the file exists at the given path
-    if os.path.exists(file_path) and file_path.lower().endswith(('.png', '.jpg', '.jpeg')):
-        print(f"Image file '{file_path}' found and ready for upload.")
+# User database (simulated)
+user_db = {}
+
+# Attempt to signup a user
+def attempt_signup(username, password):
+    if username in user_db:
+        return False
     else:
-        print("Invalid file path or file format. Please enter a valid image file path.")
+        user_db[username] = password
+        return True
 
-def manually_insert_item():
-    print("Manually insert the item details.")
-    name = input("Enter the product name: ")
-    quantity = input("Enter the quantity (e.g., '500g', '2L'): ")
-    expiration_date = input("Enter the expiration date (YYYY-MM-DD): ")
-    new_item = Product(name, expiration_date, quantity)
-    add_items_to_fridge([new_item])
-    print(f"{name} has been added to your fridge.")
+# GUI Application
+class FridgeTrackerApp(tk.Tk):
+    def __init__(self):
+        super().__init__()
+        self.title("Fridge Tracker")
+        self.geometry("400x300")
+        self.create_widgets()
 
-# Function to add items from receipt with expiry dates and alert
-def add_items_with_expiry_and_alerts(ocr_products, expiry_dates, alert_days):
-    for product_dict, expiry, alert in zip(ocr_products, expiry_dates, alert_days):
-        product = Product.from_dict(product_dict)
-        product.expiration_date = expiry  # Update expiry date
-        add_items_to_fridge([product])  # Add to fridge
-        add_to_grocery_history(product)  # Add to grocery history
-        # Set alert for the product (assuming such a function exists)
-        set_alert_for_product(product.name, expiry, alert)
+    def create_widgets(self):
+        tk.Button(self, text="Signup", command=self.open_signup_window).pack()
+        tk.Button(self, text="Add Items to Fridge", command=self.open_add_items_window).pack()
+        tk.Button(self, text="View Fridge Contents", command=self.display_fridge_contents).pack()
 
-# This would be a simulated example of how the function could be called
-example_ocr_products = [
-    {'name': 'Meat', 'expiration_date': '2023-12-05'},
-    {'name': 'Milk', 'expiration_date': '2023-12-08'}
-]
-example_expiry_dates = ['2023-12-05', '2023-12-08']
-example_alert_days = [2, 3]  # Alert 2 and 3 days before expiry respectively
+    def open_signup_window(self):
+        signup_window = tk.Toplevel(self)
+        signup_window.title("Signup")
 
-add_items_with_expiry_and_alerts(example_ocr_products, example_expiry_dates, example_alert_days)
+        tk.Label(signup_window, text="Username").pack()
+        username_entry = tk.Entry(signup_window)
+        username_entry.pack()
 
+        tk.Label(signup_window, text="Password").pack()
+        password_entry = tk.Entry(signup_window, show="*")
+        password_entry.pack()
 
-# Function to search through past groceries
-def search_past_groceries(query):
-    matching_items = []
-    for item in grocery_history['past']:
-        if query.lower() in item['name'].lower():
-            matching_items.append(item)
-    return matching_items
+        tk.Button(signup_window, text="Signup", command=lambda: self.signup(username_entry.get(), password_entry.get(), signup_window)).pack()
 
-# Example call to the search function
-search_results = search_past_groceries('milk')
-for result in search_results:
-    print(Product.from_dict(result))
+    def signup(self, username, password, window):
+        if attempt_signup(username, password):
+            messagebox.showinfo("Signup", "Signup successful!")
+            window.destroy()
+        else:
+            messagebox.showerror("Signup", "Username already exists.")
 
-# This function is to fetch the nutritional info of items and their respective expiry dates
-def get_nutritional_info(product_name):
-    nutritional_database = {
-        'Meat': {'Calories' : ‘500g’, Expiry Date : '11/01/2023', Alert Days : 5},
-        # ... other nutritional values for different products
-    }
-    return nutritional_database.get(product_name, "Nutritional info not available")
+    def open_add_items_window(self):
+        add_window = tk.Toplevel(self)
+        add_window.title("Add Items")
 
-# This function is to display them
-def display_nutritional_info():
-    for item in grocery_history['past']:
-        product = Product.from_dict(item)
-        nutritional_info = get_nutritional_info(product.name)
-        print(f"Nutritional Information for {product.name}: {nutritional_info}")
+        tk.Label(add_window, text="Product Name").pack()
+        name_entry = tk.Entry(add_window)
+        name_entry.pack()
 
-# This function would be called when the 'Past Groceries' page is accessed
-display_nutritional_info()
+        tk.Label(add_window, text="Quantity").pack()
+        quantity_entry = tk.Entry(add_window)
+        quantity_entry.pack()
 
-# Assuming the OCR functionality is already in place and can be called as such:
-def ocr_receipt_to_products(image_path):
-    # Placeholder for actual OCR logic
-    # Returns a list of product dictionaries from the receipt image
-    return [
-        {'name': 'Meat', 'expiration_date': '2023-12-05'},
-        {'name': 'Milk', 'expiration_date': '2023-12-08'},
-        # ... other products
-    ]
+        tk.Label(add_window, text="Expiration Date").pack()
+        expiration_entry = tk.Entry(add_window)
+        expiration_entry.pack()
 
-# This would be the integration function that takes OCR results and updates the app data
-def process_receipt_and_update(image_path):
-    ocr_results = ocr_receipt_to_products(image_path)
-    products = [Product.from_dict(item) for item in ocr_results]
-    add_items_to_fridge(products)  # Existing function to add items to the fridge
-    for product in products:
-        add_to_grocery_history(product)  # Existing function to update grocery history
+        tk.Button(add_window, text="Add Item", command=lambda: self.add_item(name_entry.get(), quantity_entry.get(), expiration_entry.get(), add_window)).pack()
 
-process_receipt_and_update('path_to_receipt_image.jpg')
+    def add_item(self, name, quantity, expiration, window):
+        new_item = Product(name, expiration, quantity)
+        add_items_to_fridge([new_item])
+        messagebox.showinfo("Add Item", f"{name} has been added to your fridge.")
+        window.destroy()
+
+    def display_fridge_contents(self):
+        contents_window = tk.Toplevel(self)
+        contents_window.title("Fridge Contents")
+
+        for item in my_fridge['items']:
+            tk.Label(contents_window, text=f"{item['name']}: {item['quantity']} - Expires on {item['expiration_date']}").pack()
+
+if __name__ == "__main__":
+    app = FridgeTrackerApp()
+    app.mainloop()
