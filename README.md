@@ -85,7 +85,7 @@ After the user has pressed the button of his decision, it will be conducted to t
   
 Moreover, in the 3 sections, below there is are 3 buttons: 1 that indicates the current section, and 2 that refers to the other 2 sections (so that the user can go directly to the section he want without having to return to the main page).
 
-<img src="https://github.com/22andradeb/Pantry-Pale/assets/152213582/bf5bca23-2b10-4d3b-b713-3b14dcd5329e" width="250" height="250">
+<img src="https://github.com/22andradeb/Pantry-Pale/assets/152213582/bf5bca23-2b10-4d3b-b713-3b14dcd5329e" width="300" height="250">
 
 
 
