@@ -32,6 +32,9 @@ To be able to run the program, the user must have the following things installed
 Once the user has one of the possible versions of Python and the required libraries set up, he has to open the file called "Code" and run the program.
 
 # Usage
+Firstly, users will be asked to sign in into our app.
+![IMG_3532](https://github.com/22andradeb/Pantry-Pale/assets/152213582/3f0e1070-3c6f-4a09-ac70-33264c7ed103)
+
 After a users enters our platform and log in, they will be asked about their intentions:
 - Accesing to my Fridge (which includes the current groceries on different colors based on their expiration date and the nutritional value of this grocery)
 - Updating the fridge with new products (by taking a photo to the receipt or writing them manually)
@@ -39,15 +42,38 @@ After a users enters our platform and log in, they will be asked about their int
 
 After the user has pressed the button of his decision, it will be conducted to the respective section:
 1. Accesing to my Fridge: the current groceries will appear sorted and colour by expiration dates, being the priority products first and on reed, continued by the yellow and the green ones respectively. The user will be able to see a photo of each product and its expiration date, and when pressing the product, also its nutritional values.
+
+![IMG_3533](https://github.com/22andradeb/Pantry-Pale/assets/152213582/f9061295-9157-4018-996a-c02227bd42a3)
+![IMG_3534](https://github.com/22andradeb/Pantry-Pale/assets/152213582/8c56ec9d-803b-4ca3-ba5b-0274ed43fa29)
+
+   
 2. Updating the fridge with new options: on this section, the user can update its product in two different ways:
+   
+   ![IMG_3538](https://github.com/22andradeb/Pantry-Pale/assets/152213582/d35f9f0a-b7eb-4f9e-9bf2-7b3a859d32cc)
+
    - If he press the upload picture button, he will be directed to its camera and would we asked to take a photo to its grocery receipt. After that, questions regarding expiration dates and possible confusions when implementing OCR will be asked, and the products will be uploaded to my Fridge (with their respective colors and their expiration date and photo, and occupating their respective position).
+     
+     ![IMG_3541](https://github.com/22andradeb/Pantry-Pale/assets/152213582/f4db83c0-ef03-46ee-ad68-14df772546f6)
+
    - If he press the insert manually insert button, he will be asked about the name of the product and products attributes such as expiration date, the quantity bought, etc). Once the app has this information, the new products will be uploaded to my Fridge (with their respective colors and their expiration date and photo, and occupating their respective position).
-3. Accesing Past Groceries: in this section, 3 actions can be performed:
+     
+  ![IMG_3542](https://github.com/22andradeb/Pantry-Pale/assets/152213582/c4a4f237-a89c-4340-9e85-a9555f410230)
+   
+4. Accesing Past Groceries: in this section, 3 actions can be performed:
    - They can search the name or date of a food that is on the past groceries
    - They can see a list with all their grocery receipts. Moreover, if they press a concrete receipt, they will be able to see it with more details
    - They can access to the nutritional values of the past groceries by pressing the nutritional values button
+
+![IMG_3535](https://github.com/22andradeb/Pantry-Pale/assets/152213582/5f88ed40-36ec-4a0f-b5b2-ec888b63dd4b)
+![IMG_3536](https://github.com/22andradeb/Pantry-Pale/assets/152213582/c81218f1-9571-4eb9-b8e9-dec3d1b074c4)
+![IMG_3537](https://github.com/22andradeb/Pantry-Pale/assets/152213582/7e9e4ace-1380-4006-bd6f-3adb86fe7f43)
+   
   
 Moreover, in the 3 sections, below there is are 3 buttons: 1 that indicates the current section, and 2 that refers to the other 2 sections (so that the user can go directly to the section he want without having to return to the main page).
+
+![IMG_3543](https://github.com/22andradeb/Pantry-Pale/assets/152213582/bf5bca23-2b10-4d3b-b713-3b14dcd5329e)
+
+
 
 # Extra Information
 In the development of this project, we faced multiple challenges. From the coding to the workload management, we oftentimes found ourselves struggling with our tasks; yet, through commitment and hard work we maanged to overcome these and output our best possible work with our current skill levels. We are especially proud of the Artificial Intelligence implementation within the Receipt Reader area of the platfrom which we believe makes us stand out from other projects. In order to stand out to an even greater extent, we had come up with a variety of ideas and features which we concluded to be unfeasible for our current skill-level. One feature that we had believed could add enormous value to the app was a mapping platform that essentially provided the optimal route to do one's groceries within supermarkets, based on the users' shopping lists. This could be conceptualized as a Google Maps for supermarkets, inputting shopping lists and outputting the locations of these items as well as the most time-efficient route for users from when they entered the store to when they exited it. Even though this functionality would have perfectly linked with our apps' core functions, we deemed it as unfeasible since it would have required making agreements with supermarkets to have their workers constantly update the position of items within their stores. Also, what might have seemed as a logical extension of our app was a delivery service that brought users the products within their grocery lists. However, we believed this to be too much of a liability for the initial stage of our app, and decided not to pursue it.
@@ -57,15 +83,17 @@ Even though we ended up not pursuing these features, we are still proud of our o
 # Credits
 This project was created for our Algorithms and Data Structures course at IE University. The proyect was created by: 
 
-Project Lead: Alejandra Gómez and Niccolò Pragliola
+Alejandra Gómez 
 
-UX Researcher: Mariano Delpree
+Niccolò Pragliola
 
-Research Analyst: Paula Evangelista
+Mariano Delpree
 
-Testing Moderator 1: Deniz Meten
+Paula Evangelista
 
-Testing Moderator 2: Bernarda Andrade
+Deniz Meten
+
+Bernarda Andrade
 
 
 
