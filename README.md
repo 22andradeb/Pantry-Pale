@@ -41,8 +41,11 @@ Disclosure: the app was developped on MacOS 13.01 using Python 3.11
 
 # Usage
 Firstly, users will be asked to sign in into our app.
+
+
 <img src="https://github.com/22andradeb/Pantry-Pale/assets/152213582/3f0e1070-3c6f-4a09-ac70-33264c7ed103" width="100" height="100">
-**![IMG_3532](https://github.com/22andradeb/Pantry-Pale/assets/152213582/3f0e1070-3c6f-4a09-ac70-33264c7ed103)
+
+
 
 After a users enters our platform and log in, they will be asked about their intentions:
 - Accesing to my Fridge (which includes the current groceries on different colors based on their expiration date and the nutritional value of this grocery)
