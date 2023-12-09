@@ -32,7 +32,7 @@ On the Github there are only 2 files:
 # Installation
 To be able to run the program, the user must have the following things installed:
 - Python programming language: the program will work in all versions between 3.6 and 3.8.
-- Libraries: the user must use 4 libraries when using the code: datetime, getpass, json, os. Moreover, the code explains the neccesity of a library for OCR, but it didn't specify which one. To download a library, the user must execute the following command: **pip install "name of library"**
+- Libraries: the user must have 4 libraries installed when using the code: tkinter, getpass, json, os. Furthermore, the code will use filedialog and messagebox from tkinter, but since the user should have tkinter already installed, no more installations are needed. Moreover, the code explains the neccesity of a library for OCR, but it didn't specify which one. To download a library, the user must execute the following command: **pip install "name of library"** 
 
 Once the user has one of the possible versions of Python and the required libraries set up, he has to open the file called "Code" and run the program.
 
