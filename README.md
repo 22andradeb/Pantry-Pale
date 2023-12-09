@@ -43,7 +43,7 @@ Disclosure: the app was developped on MacOS 13.01 using Python 3.11
 Firstly, users will be asked to sign in into our app.
 
 
-<img src="https://github.com/22andradeb/Pantry-Pale/assets/152213582/3f0e1070-3c6f-4a09-ac70-33264c7ed103" width="100" height="100">
+<img src="https://github.com/22andradeb/Pantry-Pale/assets/152213582/3f0e1070-3c6f-4a09-ac70-33264c7ed103" width="150" height="150">
 
 
 
@@ -55,8 +55,8 @@ After a users enters our platform and log in, they will be asked about their int
 After the user has pressed the button of his decision, it will be conducted to the respective section:
 1. Accesing to my Fridge: the current groceries will appear sorted and colour by expiration dates, being the priority products first and on reed, continued by the yellow and the green ones respectively. The user will be able to see a photo of each product and its expiration date, and when pressing the product, also its nutritional values.
 
-![IMG_3533](https://github.com/22andradeb/Pantry-Pale/assets/152213582/f9061295-9157-4018-996a-c02227bd42a3)
-![IMG_3534](https://github.com/22andradeb/Pantry-Pale/assets/152213582/8c56ec9d-803b-4ca3-ba5b-0274ed43fa29)
+<img src="https://github.com/22andradeb/Pantry-Pale/assets/152213582/f9061295-9157-4018-996a-c02227bd42a3" width="150" height="150">
+<img src="https://github.com/22andradeb/Pantry-Pale/assets/152213582/8c56ec9d-803b-4ca3-ba5b-0274ed43fa29" width="150" height="150">
 
 
    
